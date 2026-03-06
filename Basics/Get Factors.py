@@ -23,3 +23,14 @@ def get_factors(num:int)->list:
     return sorted(factors)
 if __name__ == "__main__":
     print(get_factors(8))
+
+
+def spf(num):
+    spf = list(range(num+1))
+    for i in range(2, math.isqrt(num)+1):
+        if spf[i] == i:
+            for j in range(i*i,num+1,i):
+                if spf[j] == j:
+                    spf[j] = i
+    return spf[1:]
+print(spf(8))
